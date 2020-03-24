@@ -1,0 +1,13 @@
+main: infobot.App
+name: InfoBot
+version: 0.1
+author: Adam Blanchet
+main: infobot.App
+api-version: 1.15
+commands:
+  list-players:
+    description: List players connected on the server
+    usage: /<command>
+  genmap:
+    description: Create an overview of the world
+    usage: /<command>
