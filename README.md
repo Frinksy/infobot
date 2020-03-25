@@ -8,7 +8,7 @@ Infobot is a Spigot plugin / Discord bot that provides a link between a Spigot M
 - List online players: `/list-players`
 - Seamless shared chat between Discord and Minecraft
 - Get player stats and display them on discord! Maybe you can have prizes for the top of the scoreboard?
-- Get a map showing where players are
+- Get a map showing where players are (tried that, the prototype only shows where grass blocks are on top, adding blocks one by one to the list of blocks seems too painful)
 - I am always looking for new ideas! If you have any, feel free to create an issue =)
 
 
