@@ -1,4 +1,4 @@
-package infobot;
+package infobot.mc;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

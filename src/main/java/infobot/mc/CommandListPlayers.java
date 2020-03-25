@@ -1,4 +1,4 @@
-package infobot;
+package infobot.mc;
 
 import java.util.Iterator;
 import java.util.List;

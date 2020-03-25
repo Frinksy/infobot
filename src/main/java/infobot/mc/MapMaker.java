@@ -1,4 +1,4 @@
-package infobot;
+package infobot.mc;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
