@@ -12,7 +12,7 @@ import infobot.mc.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
-import net.dv8tion.jda.api.entities.TextChannel;
+
 
 
 
@@ -34,7 +34,7 @@ public class App extends JavaPlugin
         
         try {
             
-            jda = new JDABuilder("MzM3NjU2NzM1MzQwOTUzNjA2.XnpCNA.barydHEjcEjmddrJz3JJtyn_QRk").addEventListeners(new DiscordBot())
+            jda = new JDABuilder("TOKEN").addEventListeners(new DiscordBot())
             .setActivity(Activity.playing("Type !ping"))
             .build();
 
