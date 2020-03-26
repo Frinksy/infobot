@@ -2,7 +2,6 @@ package infobot.mc;
 
 import java.util.concurrent.TimeUnit;
 
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -32,9 +31,8 @@ public class ChatListener implements Listener {
 
     @EventHandler
     public void onChatEvent(AsyncPlayerChatEvent event) {
-        Bukkit.broadcastMessage(event.getMessage());
-
-        channel.sendMessage(event.getMessage()).queue();;
+        
+        channel.sendMessage("```ini\n[" + event.getPlayer().getName() +"] " + event.getMessage() + "\n```").queue();
     }
 
 
