@@ -8,6 +8,3 @@ commands:
   list-players:
     description: List players connected on the server
     usage: /<command>
-  genmap:
-    description: Create an overview of the world
-    usage: /<command>
