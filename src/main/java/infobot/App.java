@@ -5,9 +5,11 @@ import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 import javax.security.auth.login.LoginException;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import infobot.discord.DiscordBot;
 import infobot.mc.*;
@@ -35,7 +37,32 @@ public class App extends JavaPlugin
         
         
         JDA jda = null;
+        String token = null;
+        String channelId = null;
+        FileConfiguration fconfig = this.getConfig();
 
+        // Save default config if none exists
+        saveDefaultConfig();
+
+        if (fconfig.contains("botToken")) {
+            token = fconfig.getString("botToken");
+            if (token.equals("0")) {
+                this.getLogger().log(Level.SEVERE, "NO TOKEN SPECIFIED IN CONFIG FILE");
+                token = null;
+            }
+        } else {
+            this.getLogger().log(Level.SEVERE, "NO TOKEN SPECIFIED IN CONFIG FILE");
+        }
+
+        if (fconfig.contains("channelId")) {
+            channelId = fconfig.getString("channelId");
+            if (channelId.equals("0")) {
+                this.getLogger().log(Level.SEVERE, "NO CHANNEL ID SPECIFIED IN CONFIG FILE");
+                channelId = null;
+            }
+        } else {
+            this.getLogger().log(Level.SEVERE, "NO CHANNEL ID SPECIFIED IN CONFIG FILE");
+        }
         
         try {
             
@@ -49,7 +76,7 @@ public class App extends JavaPlugin
             disabled_caches.add(CacheFlag.EMOTE);
 
             jda =  JDABuilder
-            .create("TOKEN", intents)
+            .create(token, intents)
             .setMemberCachePolicy(MemberCachePolicy.NONE)
             .disableCache(disabled_caches)
             .addEventListeners(new DiscordBot())
@@ -61,7 +88,7 @@ public class App extends JavaPlugin
             logger.log(Level.SEVERE,"Could not login to discord!");
         }
 
-        getServer().getPluginManager().registerEvents(new ChatListener(jda), this);
+        getServer().getPluginManager().registerEvents(new ChatListener(jda, channelId), this);
 
     }
 

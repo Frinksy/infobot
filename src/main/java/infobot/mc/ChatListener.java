@@ -13,9 +13,10 @@ public class ChatListener implements Listener {
 
     JDA jda;
     TextChannel channel;
-    public ChatListener(JDA jda) {
+    public ChatListener(JDA jda, String channelId) {
         super();
         this.jda = jda;
+        
 
         try {
             TimeUnit.SECONDS.sleep(5);
@@ -24,7 +25,7 @@ public class ChatListener implements Listener {
             e.printStackTrace();
         }
 
-        channel = jda.getTextChannelById("CHANNEL ID");
+        channel = jda.getTextChannelById(channelId);
 
     }
 
