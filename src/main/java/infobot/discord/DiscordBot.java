@@ -19,6 +19,9 @@ public class DiscordBot extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event)
     {
         Message msg = event.getMessage();
+        if (msg.getAuthor().isBot()) {
+            return;
+        }
         if (msg.getContentRaw().equals("!ping"))
         {
             MessageChannel channel = event.getChannel();
