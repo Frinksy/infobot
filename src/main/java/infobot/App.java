@@ -78,7 +78,7 @@ public class App extends JavaPlugin
             .create(token, intents)
             .setMemberCachePolicy(MemberCachePolicy.NONE)
             .disableCache(disabled_caches)
-            .addEventListeners(new DiscordBot())
+            .addEventListeners(new DiscordBot(channelId))
             .setActivity(Activity.playing("Type !ping"))
             .build();
 

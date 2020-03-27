@@ -14,6 +14,11 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class DiscordBot extends ListenerAdapter {
 
+    String channelId;
+
+    public DiscordBot (String channelId) {
+        this.channelId = channelId;
+    }
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event)
@@ -32,7 +37,7 @@ public class DiscordBot extends ListenerAdapter {
                    });
         } else if (msg.getContentRaw().equals("!list-players")) {
             listPlayers(event);
-        } else {
+        } else if (msg.getChannel().getId().equals(channelId)) {
             Bukkit.broadcastMessage("§9(discord)§r<" + event.getAuthor().getName() + "> " + msg.getContentRaw());
         }
 
