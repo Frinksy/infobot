@@ -1,6 +1,6 @@
 main: infobot.App
 name: InfoBot
-version: 0.1
+version: 1.0.1-SNAPSHOT
 author: Adam Blanchet
 main: infobot.App
 api-version: 1.15
